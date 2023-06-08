@@ -1,6 +1,7 @@
 import axios from 'axios'
+import {CATS_QUERY} from '../constants/staticStrings'
 
-export default async function (q = 'cats') {
+export default async function (q = CATS_QUERY) {
   try {
     const resp = await axios
       .get('https://api.giphy.com/v1/gifs/search', {
