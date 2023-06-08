@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
+import fetchGifs from './api/fetchGifs'
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
+import useCatsAndDogs, {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
+
+const queryClient = new QueryClient()
+
+const Gifs = () => {
+  const {value} = useCatsAndDogs()
+  const {data} = useQuery(['gifs', value], () => fetchGifs())
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <CatsAndDogsProvider>
+        <Gifs />
+      </CatsAndDogsProvider>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  )
 }
 
-export default App;
+export default App
