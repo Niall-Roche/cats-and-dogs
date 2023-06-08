@@ -2,7 +2,7 @@ import * as RadixSwitch from '@radix-ui/react-switch'
 import {styled} from 'styled-components'
 import {CAT_EMOJI, DOG_EMOJI} from '../../constants/images'
 import useCatsAndDogs from '../../hooks/useCatsAndDogs'
-import {CATS_QUERY, DOGS_QUERY} from '../../constants/staticStrings'
+import {CATS_QUERY} from '../../constants/staticStrings'
 
 const SwitchRoot = styled(RadixSwitch.Root)`
   cursor: pointer;
@@ -39,10 +39,10 @@ const SwitchImg = styled.img`
 `
 
 const Switch = () => {
-  const {value, setValue} = useCatsAndDogs()
+  const {value, toggle} = useCatsAndDogs()
 
   return (
-    <SwitchRoot onCheckedChange={() => setValue(value === CATS_QUERY ? DOGS_QUERY : CATS_QUERY)}>
+    <SwitchRoot onCheckedChange={toggle}>
       <SwitchThumb>
         <SwitchImg height={30} width={30} src={value === CATS_QUERY ? CAT_EMOJI : DOG_EMOJI} />
       </SwitchThumb>
