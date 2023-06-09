@@ -9,13 +9,13 @@ const SwitchRoot = styled(RadixSwitch.Root)`
   width: 90px;
   height: 46px;
   padding: 0;
-  background-color: #b7f4f8;
+  background-color: ${props => props?.theme?.accent};
   border-radius: 100px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border: 2px solid #7e7e7e;
+  border: 2px solid ${props => props?.theme?.primary};
 
   &[data-state='checked'] {
-    background-color: #b7f4f8;
+    background-color: ${props => props?.theme?.accent};
   }
 `
 
