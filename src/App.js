@@ -1,12 +1,7 @@
-import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
-import fetchGifs from './api/fetchGifs'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
-import useCatsAndDogs, {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
-import Switch from './components/switch/Switch'
-import {useEffect, useState} from 'react'
-import Pagination, {calculateOffset} from './components/pagination/Pagination'
-import {LIMIT, MAX_OFFSET} from './constants/api'
-import {ThemeProvider, styled} from 'styled-components'
+import {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
+import {ThemeProvider} from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
 import {RouterProvider} from 'react-router-dom'
 import router from './components/router/router'
@@ -20,58 +15,17 @@ const theme = {
   secondary: '#fff',
 }
 
-const MainContainer = styled.div`
-  height: 100%;
-  width:  100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-`
-
-const Gifs = () => {
-  const {value} = useCatsAndDogs()
-
-  const [offset, setOffset] = useState(0)
-  const [page, setPage] = useState(0)
-
-  const actualOffset = offset > MAX_OFFSET ? MAX_OFFSET : offset
-
-  useEffect(() => {
-    setOffset(0)
-    setPage(0)
-  }, [value])
-
-  const {
-    data,
-  } = useQuery(
-    ['gifs', value, actualOffset],
-    () => fetchGifs(value, actualOffset),
-    {keepPreviousData: true}
-  )
-
-  return (
-    <Pagination
-      forcePage={page}
-      total={data?.pagination?.total_count}
-      onPageChange={page => {
-        setPage(page - 1)
-        setOffset(calculateOffset(page, LIMIT))
-      }}
-    />
-  )
-}
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <CatsAndDogsProvider>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
-          <MainContainer>
+          <div className='d-flex flex-col align-items-center mb-1'>
+            <h3>Cats & Dogs</h3>
+            <span className='mb-1'>Powered By GIPHY</span>
             <RouterProvider router={router} />
-          </MainContainer>
+          </div>
           {/* <a
               href='https://www.flaticon.com/free-icons/cat'
               title='cat icons'>Cat icons created by Freepik - Flaticon
