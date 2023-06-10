@@ -8,6 +8,8 @@ import Pagination, {calculateOffset} from './components/pagination/Pagination'
 import {LIMIT, MAX_OFFSET} from './constants/api'
 import {ThemeProvider, styled} from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
+import {RouterProvider} from 'react-router-dom'
+import router from './components/router/router'
 
 const queryClient = new QueryClient()
 
@@ -68,17 +70,16 @@ function App() {
         <ThemeProvider theme={theme}>
           <GlobalStyles />
           <MainContainer>
-            <Switch />
-            <Gifs />
-            <a
+            <RouterProvider router={router} />
+          </MainContainer>
+          {/* <a
               href='https://www.flaticon.com/free-icons/cat'
               title='cat icons'>Cat icons created by Freepik - Flaticon
             </a>
             <a
               href='https://www.flaticon.com/free-icons/siberian-husky'
               title='siberian husky icons'>Siberian husky icons created by AomAm - Flaticon
-            </a>
-          </MainContainer>
+            </a> */}
         </ThemeProvider>
       </CatsAndDogsProvider>
       <ReactQueryDevtools />

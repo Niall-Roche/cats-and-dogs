@@ -1,8 +1,17 @@
+import {string} from 'prop-types'
 import * as RadixSwitch from '@radix-ui/react-switch'
 import {styled} from 'styled-components'
 import {CAT_EMOJI, DOG_EMOJI} from '../../constants/images'
 import useCatsAndDogs from '../../hooks/useCatsAndDogs'
-import {CATS_QUERY} from '../../constants/staticStrings'
+import {CATS_QUERY, DOGS_QUERY} from '../../constants/staticStrings'
+
+const propTypes = {
+  className: string,
+}
+
+const defaultProps = {
+  className: '',
+}
 
 const SwitchRoot = styled(RadixSwitch.Root)`
   cursor: pointer;
@@ -38,16 +47,42 @@ const SwitchImg = styled.img`
   margin-top: 5px;
 `
 
-const Switch = () => {
+const Switch = ({className}) => {
   const {value, toggle} = useCatsAndDogs()
 
+  const switchImages = [
+    {
+      className: value === CATS_QUERY ? '' : 'd-none',
+      src: CAT_EMOJI,
+    },
+    {
+      className: value === DOGS_QUERY ? '' : 'd-none',
+      src: DOG_EMOJI,
+    },
+  ]
+
   return (
-    <SwitchRoot onCheckedChange={toggle}>
+    <SwitchRoot className={className} onCheckedChange={toggle}>
       <SwitchThumb>
-        <SwitchImg height={30} width={30} src={value === CATS_QUERY ? CAT_EMOJI : DOG_EMOJI} />
+        {
+          switchImages
+            ?.map(
+              (image, i) => (
+                <SwitchImg
+                  key={i}
+                  className={image?.className}
+                  height={30}
+                  width={30}
+                  src={image?.src}
+                />
+              ))
+        }
       </SwitchThumb>
     </SwitchRoot>
   )
 }
+
+Switch.propTypes = propTypes
+Switch.defaultProps = defaultProps
 
 export default Switch
