@@ -51,7 +51,7 @@ const GifList = () => {
         total={data?.pagination?.total_count}
         onPageChange={page => {
           setPage(page - 1)
-          setOffset(calculateOffset(page, LIMIT))
+          setOffset(calculateOffset(page))
         }}
       />
     </div>
