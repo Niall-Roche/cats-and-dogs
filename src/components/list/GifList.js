@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react'
 import useCatsAndDogs from '../../hooks/useCatsAndDogs'
-import {LIMIT, MAX_OFFSET} from '../../constants/api'
+import {MAX_OFFSET} from '../../constants/api'
 import {useQuery} from '@tanstack/react-query'
 import fetchGifs from '../../api/fetchGifs'
 import Pagination, {calculateOffset} from '../pagination/Pagination'
 import Grid from '../grid/Grid'
 import GridImage from '../image/GridImage'
+import {Link} from 'react-router-dom'
 
 const GifList = () => {
   const {value} = useCatsAndDogs()
@@ -36,13 +37,14 @@ const GifList = () => {
             ?.data
             ?.map(
               gif => (
-                <GridImage
-                  key={gif?.id}
-                  height={150}
-                  width={150}
-                  src={gif?.images?.downsized_still?.url}
-                  loading='lazy'
-                />
+                <Link key={gif?.id} to={gif?.id}>
+                  <GridImage
+                    height={150}
+                    width={150}
+                    src={gif?.images?.fixed_width?.url}
+                    loading='lazy'
+                  />
+                </Link>
               ))
         }
       </Grid>

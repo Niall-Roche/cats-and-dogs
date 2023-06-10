@@ -17,8 +17,16 @@ const Utilities = createGlobalStyle`
         flex-direction: column;
     }
 
+    .flex-row {
+        flex-direction: row;
+    }
+
     .mb-1 {
         margin-bottom: 1rem;
+    }
+
+    .ms-auto {
+        margin-left: auto;
     }
 `
 
