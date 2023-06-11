@@ -10,17 +10,13 @@ const ImageContainer = styled.div`
 `
 
 const StyledImg = styled.img`
-  transition: opacity .2s, box-shadow .2s;
+  max-width: 500px;
+  max-height: 500px;
+  transition: opacity .2s;
   opacity: ${props => !!props?.$loaded ? '1' : '0'};
-  &:hover {
-    box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
-    transform: scale(1.07);
-  }
 `
 
-const GridImage = props => {
+const Image = props => {
   const [loaded, setLoaded] = useState(false)
 
   return (
@@ -34,4 +30,4 @@ const GridImage = props => {
   )
 }
 
-export default GridImage
+export default Image

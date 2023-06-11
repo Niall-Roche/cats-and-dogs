@@ -1,31 +1,32 @@
-import {useEffect, useState} from 'react'
 import useCatsAndDogs from '../../hooks/useCatsAndDogs'
-import {MAX_OFFSET} from '../../constants/api'
 import {useQuery} from '@tanstack/react-query'
 import fetchGifs from '../../api/fetchGifs'
 import Pagination, {calculateOffset} from '../pagination/Pagination'
 import Grid from '../grid/Grid'
-import GridImage from '../image/GridImage'
+import Image from '../image/Image'
 import {Link} from 'react-router-dom'
+import usePagination from '../../hooks/usePagination'
+import {styled} from 'styled-components'
+
+const StyledLink = styled(Link)`
+    transition: box-shadow .2s;
+    &:hover {
+        box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+        transform: scale(1.07);
+    }
+`
 
 const GifList = () => {
   const {value} = useCatsAndDogs()
-
-  const [offset, setOffset] = useState(0)
-  const [page, setPage] = useState(0)
-
-  const actualOffset = offset > MAX_OFFSET ? MAX_OFFSET : offset
-
-  useEffect(() => {
-    setOffset(0)
-    setPage(0)
-  }, [value])
+  const {offset, page, setOffset, setPage} = usePagination()
 
   const {
     data,
   } = useQuery(
-    ['gifs', value, actualOffset],
-    () => fetchGifs(value, actualOffset),
+    ['gifs', value, offset],
+    () => fetchGifs(value, offset),
     {keepPreviousData: true}
   )
 
@@ -37,14 +38,15 @@ const GifList = () => {
             ?.data
             ?.map(
               gif => (
-                <Link key={gif?.id} to={gif?.id}>
-                  <GridImage
+                <StyledLink key={gif?.id} to={gif?.id}>
+                  <Image
                     height={150}
                     width={150}
+                    alt={gif?.title}
                     src={gif?.images?.fixed_width?.url}
                     loading='lazy'
                   />
-                </Link>
+                </StyledLink>
               ))
         }
       </Grid>
