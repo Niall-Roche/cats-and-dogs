@@ -1,4 +1,4 @@
-import {string} from 'prop-types'
+import {func, string} from 'prop-types'
 import * as RadixSwitch from '@radix-ui/react-switch'
 import {styled} from 'styled-components'
 import {CAT_EMOJI, DOG_EMOJI} from '../../constants/images'
@@ -7,10 +7,12 @@ import {CATS_QUERY, DOGS_QUERY} from '../../constants/staticStrings'
 
 const propTypes = {
   className: string,
+  onChange: func,
 }
 
 const defaultProps = {
   className: '',
+  onChange: null,
 }
 
 const SwitchRoot = styled(RadixSwitch.Root)`
@@ -47,8 +49,8 @@ const SwitchImg = styled.img`
   margin-top: 5px;
 `
 
-const Switch = ({className}) => {
-  const {value, toggle} = useCatsAndDogs()
+const Switch = ({className, onChange}) => {
+  const {value} = useCatsAndDogs()
 
   const switchImages = [
     {
@@ -62,7 +64,10 @@ const Switch = ({className}) => {
   ]
 
   return (
-    <SwitchRoot className={className} onCheckedChange={toggle}>
+    <SwitchRoot
+      checked={value === DOGS_QUERY}
+      className={className}
+      onCheckedChange={onChange}>
       <SwitchThumb>
         {
           switchImages
