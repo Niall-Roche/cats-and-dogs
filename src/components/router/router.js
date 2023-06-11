@@ -1,18 +1,18 @@
-import {createBrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, createBrowserRouter} from 'react-router-dom'
 import Gifs from '../../pages/Gifs'
 import Gif from '../../pages/Gif'
+import TopNav from '../nav/TopNav'
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <Gifs />,
-    },
-    {
-      path: '/:id',
-      element: <Gif />,
-    },
-  ]
-)
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <TopNav />
+      <Routes>
+        <Route path='/' element={<Gifs />} />
+        <Route path=':id' element={<Gif />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
-export default router
+export default Router

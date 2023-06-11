@@ -3,9 +3,8 @@ import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
 import {ThemeProvider} from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
-import {RouterProvider} from 'react-router-dom'
-import router from './components/router/router'
 import {PaginationProvider} from './hooks/usePagination'
+import Router from './components/router/Router'
 
 const queryClient = new QueryClient()
 
@@ -23,11 +22,7 @@ function App() {
         <PaginationProvider>
           <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <div className='d-flex flex-col align-items-center mb-1'>
-              <h3>Cats & Dogs</h3>
-              <span className='mb-1'>Powered By GIPHY</span>
-              <RouterProvider router={router} />
-            </div>
+            <Router />
             {/* <a
               href='https://www.flaticon.com/free-icons/cat'
               title='cat icons'>Cat icons created by Freepik - Flaticon

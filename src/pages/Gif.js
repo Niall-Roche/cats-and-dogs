@@ -12,7 +12,7 @@ const Gif = () => {
   })
 
   return (
-    <div>
+    <div className='d-flex flex-col align-items-center'>
       <Image src={data?.data?.images?.original?.url} />
     </div>
   )
