@@ -5,22 +5,7 @@ import {ThemeProvider} from 'styled-components'
 import theme from './app-theme.json'
 import GlobalStyles from './styles/GlobalStyles'
 import {PaginationProvider} from './hooks/usePagination'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Gifs from './pages/Gifs'
-import Gif from './pages/Gif'
-import TopNav from './components/nav/TopNav'
-
-const Router = () => {
-  return (
-    <BrowserRouter>
-      <TopNav />
-      <Routes>
-        <Route path='/' element={<Gifs />} />
-        <Route path=':id' element={<Gif />} />
-      </Routes>
-    </BrowserRouter>
-  )
-}
+import Router from './components/router/AppRouter'
 
 const queryClient = new QueryClient()
 
