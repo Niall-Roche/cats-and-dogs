@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, createBrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Gifs from '../../pages/Gifs'
 import Gif from '../../pages/Gif'
 import TopNav from '../nav/TopNav'
