@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Cats:smiley_cat: & Dogs:dog:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and utilises [React Query](https://tanstack.com/query/latest/) for data management.
+
+Toggle between cat and dog gifs. Select one to view more detail.
+
+Visit the [app](https://cats-and-dogs-sigma.vercel.app).
 
 ## Available Scripts
 
@@ -19,52 +23,35 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### .env file
+There is an example.env file. Rename this to .env and add a valid giphy api key.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Sound
+Sound effects added at the request of my 2 year old daughter. Volume up please.:point_up:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### Resources
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+https://react.dev/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://reactrouter.com/en/main
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://tanstack.com/query/latest/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://styled-components.com/
 
-## Learn More
+https://howlerjs.com/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+https://testing-library.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://orangefreesounds.com/
 
-### Code Splitting
+https://blog.webdevsimplified.com/2023-05/lazy-load-images/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+https://medium.com/@matt.readout/adding-css-animations-with-styled-components-6c191c23b6ba
 
-### Analyzing the Bundle Size
+https://www.flaticon.com/free-icons/cat
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://www.flaticon.com/free-icons/siberian-husky
