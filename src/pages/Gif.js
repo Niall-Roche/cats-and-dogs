@@ -5,6 +5,8 @@ import Image from '../components/image/Image'
 import {styled} from 'styled-components'
 import {screenMd} from '../styles/mixins/screens'
 import User from '../components/user/User'
+import Error from '../components/error/Error'
+import Loading from '../components/loading/Loading'
 
 const Container = styled.div`
   display: flex;
@@ -84,7 +86,7 @@ const GifContainer = styled.div`
 const Gif = () => {
   const {id} = useParams()
 
-  const {data, isError} = useQuery(['gif', id], () => fetchGif(id), {
+  const {data, isError, isLoading} = useQuery(['gif', id], () => fetchGif(id), {
     enabled: !!id,
     staleTime: 300000, // Data will become stale after 5 minutes
   })
@@ -96,6 +98,9 @@ const Gif = () => {
     !data?.data?.user?.website_url &&
     !data?.data?.user
   )
+
+  if (isLoading) return <Loading />
+  if (isError) return <Error />
 
   return (
     <Container>
@@ -119,13 +124,16 @@ const Gif = () => {
           )
         }
       </DetailsContainer>
-      <GifContainer $shouldCenter={noUserOrSource}>
-        <Title>{data?.data?.title}</Title>
-        <StyledImage src={data?.data?.images?.original?.url} />
-        <div className='text-center'>
-          <a target='_blank' rel='noreferrer' href={data?.data?.url}>View on GIPHY</a>
-        </div>
-      </GifContainer>
+      {
+        !!data?.data &&
+        <GifContainer $shouldCenter={noUserOrSource}>
+          <Title>{data?.data?.title}</Title>
+          <StyledImage src={data?.data?.images?.original?.url} />
+          <div className='text-center'>
+            <a target='_blank' rel='noreferrer' href={data?.data?.url}>View on GIPHY</a>
+          </div>
+        </GifContainer>
+      }
     </Container>
   )
 }

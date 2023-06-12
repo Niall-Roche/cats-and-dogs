@@ -7,6 +7,8 @@ import Image from '../image/Image'
 import {Link} from 'react-router-dom'
 import usePagination from '../../hooks/usePagination'
 import {styled} from 'styled-components'
+import Loading from '../loading/Loading'
+import Error from '../error/Error'
 
 const StyledLink = styled(Link)`
     transition: box-shadow .2s;
@@ -24,11 +26,16 @@ const GifList = () => {
 
   const {
     data,
+    isError,
+    isLoading,
   } = useQuery(
     ['gifs', value, offset],
     () => fetchGifs(value, offset),
     {keepPreviousData: true}
   )
+
+  if (isLoading) return <Loading />
+  if (isError) return <Error />
 
   return (
     <div className='d-flex flex-col align-items-center'>
