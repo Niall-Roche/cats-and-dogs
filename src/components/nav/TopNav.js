@@ -1,5 +1,5 @@
 import {styled} from 'styled-components'
-import {CAT_EMOJI} from '../../constants/images'
+import {CAT_DOG_EMOJI} from '../../constants/images'
 import {Link} from 'react-router-dom'
 
 const TopNavContainer = styled.div`
@@ -32,7 +32,7 @@ const TopNav = () => {
   return (
     <TopNavContainer className='d-flex flex-row mb-1'>
       <StyledLink className='d-flex align-items-center' to='/'>
-        <BrandImage src={CAT_EMOJI} width={32} height={32} />
+        <BrandImage src={CAT_DOG_EMOJI} width={32} height={32} />
         <Title>Cats & Dogs</Title>
       </StyledLink>
       <SubTitle className='ms-auto'>Powered By GIPHY</SubTitle>
