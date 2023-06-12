@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch should match snapshot 1`] = `
+Array [
+  <button
+    aria-checked={false}
+    className="ecZxBy"
+    data-state="unchecked"
+    data-testid="switch"
+    onClick={[Function]}
+    role="switch"
+    type="button"
+    value="on"
+  >
+    <span
+      className="kBgWPn"
+      data-state="unchecked"
+    >
+      <img
+        className="drAovU"
+        height={30}
+        src="cat.png"
+        width={30}
+      />
+      <img
+        className="drAovU d-none"
+        height={30}
+        src="dog.png"
+        width={30}
+      />
+    </span>
+  </button>,
+  <input
+    aria-hidden={true}
+    defaultChecked={false}
+    style={
+      Object {
+        "margin": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "transform": "translateX(-100%)",
+      }
+    }
+    tabIndex={-1}
+    type="checkbox"
+    value="on"
+  />,
+]
+`;
+
+exports[`Switch should match snapshot with required props 1`] = `
+Array [
+  <button
+    aria-checked={false}
+    className="ecZxBy d-flex"
+    data-state="unchecked"
+    data-testid="switch"
+    onClick={[Function]}
+    role="switch"
+    type="button"
+    value="on"
+  >
+    <span
+      className="kBgWPn"
+      data-state="unchecked"
+    >
+      <img
+        className="drAovU"
+        height={30}
+        src="cat.png"
+        width={30}
+      />
+      <img
+        className="drAovU d-none"
+        height={30}
+        src="dog.png"
+        width={30}
+      />
+    </span>
+  </button>,
+  <input
+    aria-hidden={true}
+    defaultChecked={false}
+    style={
+      Object {
+        "margin": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "transform": "translateX(-100%)",
+      }
+    }
+    tabIndex={-1}
+    type="checkbox"
+    value="on"
+  />,
+]
+`;

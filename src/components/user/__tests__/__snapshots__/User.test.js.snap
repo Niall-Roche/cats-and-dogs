@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User should match snapshot 1`] = `
+<div
+  className="hUMCjG"
+>
+  <div
+    className="kbLjDT d-flex"
+  >
+    <div
+      className="kBnjTn"
+    >
+      <img
+        className="lbBMSi cKDFqv"
+        onLoad={[Function]}
+        src="https://media3.giphy.com/avatars/bestfriends/4Ja63d50vmML.gif"
+      />
+    </div>
+    <div>
+      <span
+        className="bWaHCS"
+      >
+        bestfriends
+      </span>
+      <div
+        className="ecapwf"
+      >
+        <a
+          className="jbTKNC"
+          href="https://giphy.com/bestfriends/"
+          rel="noreferrer"
+          target="blank"
+        >
+          <img
+            height={25}
+            src="giphy-icon.png"
+            width={25}
+          />
+        </a>
+        <a
+          className="jbTKNC"
+          href="https://www.instagram.com/bestfriendsanimalsociety/"
+          rel="noreferrer"
+          target="blank"
+        >
+          <img
+            height={25}
+            src="instagram-icon.png"
+            width={25}
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <p
+    className="cdWVoH"
+  >
+    DESCRIPTION
+  </p>
+</div>
+`;

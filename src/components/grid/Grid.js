@@ -10,6 +10,7 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(5, 150px);
   grid-template-rows: ${props => `repeat(${Math.floor(props?.$total / 5)}, 150px)`};
   grid-auto-flow: column;
+  /* On smaller screens we favour a wrapping flex display */
   ${screenMd({
     display: 'flex',
     flexWrap: 'wrap',

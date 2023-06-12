@@ -65,6 +65,7 @@ const Switch = ({className, onChange}) => {
 
   return (
     <SwitchRoot
+      data-testid='switch'
       checked={value === DOGS_QUERY}
       className={className}
       onCheckedChange={onChange}>
