@@ -86,9 +86,9 @@ const Gif = () => {
   })
 
   const noUserOrSource = (
-    !data?.data?.source ||
-    !data?.data?.source_post_url ||
-    !data?.data?.user?.website_url ||
+    !data?.data?.source &&
+    !data?.data?.source_post_url &&
+    !data?.data?.user?.website_url &&
     !data?.data?.user
   )
 
