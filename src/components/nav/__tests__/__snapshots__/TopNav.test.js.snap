@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopNav should match snapshot 1`] = `
+<div
+  className="jcNbAj d-flex flex-row mb-1"
+>
+  <a
+    className="dSLzlO d-flex align-items-center"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      className="fDLtHd"
+      height={32}
+      src="catdog.png"
+      width={32}
+    />
+    <span
+      className="eHVcVy"
+    >
+      Cats & Dogs
+    </span>
+  </a>
+  <span
+    className="dNffVX ms-auto"
+  >
+    Powered By GIPHY
+  </span>
+</div>
+`;

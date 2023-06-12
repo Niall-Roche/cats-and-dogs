@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should match snapshot 1`] = `null`;
+
+exports[`Pagination should match snapshot with required props 1`] = `null`;

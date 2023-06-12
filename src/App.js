@@ -1,7 +1,8 @@
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
-import {ThemeProvider, styled} from 'styled-components'
+import {ThemeProvider} from 'styled-components'
+import theme from './app-theme.json'
 import GlobalStyles from './styles/GlobalStyles'
 import {PaginationProvider} from './hooks/usePagination'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -9,34 +10,19 @@ import Gifs from './pages/Gifs'
 import Gif from './pages/Gif'
 import TopNav from './components/nav/TopNav'
 
-const RouterContainer = styled.div`
-  position: relative;
-  top: 60px;
-  min-height: 100vh;
-`
-
 const Router = () => {
   return (
     <BrowserRouter>
       <TopNav />
-      <RouterContainer>
-        <Routes>
-          <Route path='/' element={<Gifs />} />
-          <Route path=':id' element={<Gif />} />
-        </Routes>
-      </RouterContainer>
+      <Routes>
+        <Route path='/' element={<Gifs />} />
+        <Route path=':id' element={<Gif />} />
+      </Routes>
     </BrowserRouter>
   )
 }
 
 const queryClient = new QueryClient()
-
-const theme = {
-  accent: '#b7f4f8',
-  background: '#fff',
-  primary: '#7e7e7e',
-  secondary: '#fff',
-}
 
 function App() {
   return (
