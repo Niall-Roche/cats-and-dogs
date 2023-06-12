@@ -18,6 +18,7 @@ const UserContainer = styled.div`
   align-self: start;
   background-color: ${props => props?.theme?.secondary};
   border-radius: 18px;
+  width: 100%;
 `
 
 const UserDetails = styled.div`
@@ -61,6 +62,7 @@ const ProfileDescription = styled.p`
   font-size: 14px;
   ${screenMd({
     maxWidth: '100%',
+    width: '100%',
   })}
 `
 
