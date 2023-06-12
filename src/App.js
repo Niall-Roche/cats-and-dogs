@@ -10,7 +10,7 @@ const queryClient = new QueryClient()
 
 const theme = {
   accent: '#b7f4f8',
-  background: '#fde7e5',
+  background: '#fff',
   primary: '#7e7e7e',
   secondary: '#fff',
 }

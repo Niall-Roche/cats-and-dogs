@@ -28,6 +28,10 @@ const Utilities = createGlobalStyle`
     .ms-auto {
         margin-left: auto;
     }
+
+    .text-center {
+        text-align: center;
+    }
 `
 
 export default Utilities
