@@ -5,9 +5,9 @@ import {ThemeProvider} from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
 import {PaginationProvider} from './hooks/usePagination'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Gifs from '../../pages/Gifs'
-import Gif from '../../pages/Gif'
-import TopNav from '../nav/TopNav'
+import Gifs from './pages/Gifs'
+import Gif from './pages/Gif'
+import TopNav from './components/nav/TopNav'
 
 const Router = () => {
   return (
