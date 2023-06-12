@@ -4,7 +4,22 @@ import {CatsAndDogsProvider} from './hooks/useCatsAndDogs'
 import {ThemeProvider} from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
 import {PaginationProvider} from './hooks/usePagination'
-import Router from './components/router/Router'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Gifs from '../../pages/Gifs'
+import Gif from '../../pages/Gif'
+import TopNav from '../nav/TopNav'
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <TopNav />
+      <Routes>
+        <Route path='/' element={<Gifs />} />
+        <Route path=':id' element={<Gif />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 const queryClient = new QueryClient()
 
