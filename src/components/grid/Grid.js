@@ -2,6 +2,8 @@ import {node, string} from 'prop-types'
 import {styled} from 'styled-components'
 import {screenMd} from '../../styles/mixins/screens'
 
+// Show a grid with a max of 5 columns.
+// The number of rows are calculated from the current page total divided by 5 and rounded down.
 const GridContainer = styled.div`
   display: grid;
   gap: 10px;

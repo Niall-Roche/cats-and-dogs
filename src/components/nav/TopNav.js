@@ -3,11 +3,14 @@ import {CAT_DOG_EMOJI} from '../../constants/images'
 import {Link} from 'react-router-dom'
 
 const TopNavContainer = styled.div`
+    position: fixed;
     background-color: ${props => props?.theme?.accent};
     width: 100%;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 50px;
+    z-index: 1;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
 `
 
 const StyledLink = styled(Link)`
