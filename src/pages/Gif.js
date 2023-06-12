@@ -4,7 +4,7 @@ import fetchGif from '../api/fetchGif'
 import Image from '../components/image/Image'
 import {styled} from 'styled-components'
 import {screenMd} from '../styles/mixins/screens'
-import {GIPHY_ICON, INSTAGRAM_ICON} from '../constants/images'
+import User from '../components/user/User'
 
 const Container = styled.div`
   display: flex;
@@ -41,53 +41,6 @@ const DetailsContainer = styled.div`
   })}
 `
 
-const UserContainer = styled.div`
-  align-self: start;
-  background-color: ${props => props?.theme?.secondary};
-  border-radius: 18px;
-`
-
-const UserDetails = styled.div`
-  background-color: ${props => props?.theme?.accent};
-  border-radius: 18px;
-  padding: 10px;
-`
-
-const ProfileImage = styled(Image)`
-  object-fit: cover;
-  width: 50px;
-  height: 50px;
-  margin-right: 5px;
-`
-
-const UserLinks = styled.div`
-  margin-top: 5px;
-  display: flex;
-  gap: 10px;
-`
-
-const UserLink = styled.a`
-  text-decoration: none;
-  color: ${props => props?.theme?.primary};
-  transition: opacity .2s;
-  &:hover {
-    opacity: 0.7;
-  }
-`
-
-const UserName = styled.span`
-  font-weight: bold;
-  font-size: 14px;
-`
-
-const ProfileDescription = styled.p`
-  margin-left: 10px;
-  margin-right: 10px;
-  max-width: 250px;
-  white-space: pre-wrap;
-  font-size: 14px;
-`
-
 const SourceContainer = styled.div`
   padding-bottom: 10px;
   border-radius: 18px;
@@ -115,6 +68,7 @@ const SourceLink = styled.a`
 `
 
 const GifContainer = styled.div`
+  ${props => props?.$shouldCenter ? {marginLeft: 'auto', marginRight: 'auto'} : {}}
   ${screenMd({
     order: 0,
     marginBottom: '20px',
@@ -131,30 +85,19 @@ const Gif = () => {
     staleTime: 300000, // Data will become stale after 5 minutes
   })
 
-  console.log(data?.data?.source || data?.data?.source_post_url || data?.data?.user?.website_url)
+  const noUserOrSource = (
+    !data?.data?.source ||
+    !data?.data?.source_post_url ||
+    !data?.data?.user?.website_url ||
+    !data?.data?.user
+  )
 
   return (
     <Container>
       <DetailsContainer>
         {
           !!data?.data?.user &&
-          <UserContainer>
-            <UserDetails className='d-flex'>
-              <ProfileImage src={data?.data?.user?.avatar_url} />
-              <div>
-                <UserName>{data?.data?.user?.username}</UserName>
-                <UserLinks>
-                  <UserLink target='blank' rel='noreferrer' href={data?.data?.user?.profile_url}>
-                    <img src={GIPHY_ICON} height={25} width={25} />
-                  </UserLink>
-                  <UserLink target='blank' rel='noreferrer' href={data?.data?.user?.instagram_url}>
-                    <img src={INSTAGRAM_ICON} height={25} width={25} />
-                  </UserLink>
-                </UserLinks>
-              </div>
-            </UserDetails>
-            <ProfileDescription>{data?.data?.user?.description}</ProfileDescription>
-          </UserContainer>
+          <User data={data?.data?.user} />
         }
         {
           (!!data?.data?.source || !!data?.data?.source_post_url || !!data?.data?.user?.website_url)
@@ -171,7 +114,7 @@ const Gif = () => {
           )
         }
       </DetailsContainer>
-      <GifContainer>
+      <GifContainer $shouldCenter={noUserOrSource}>
         <Title>{data?.data?.title}</Title>
         <StyledImage src={data?.data?.images?.original?.url} />
         <div className='text-center'>
