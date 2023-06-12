@@ -22,6 +22,7 @@ const UserContainer = styled.div`
 `
 
 const UserDetails = styled.div`
+  display: flex;
   background-color: ${props => props?.theme?.accent};
   border-radius: 18px;
   padding: 10px;
@@ -69,7 +70,7 @@ const ProfileDescription = styled.p`
 const User = ({data}) => {
   return (
     <UserContainer>
-      <UserDetails className='d-flex'>
+      <UserDetails>
         <ProfileImage src={data?.avatar_url} />
         <div>
           <UserName>{data?.username}</UserName>

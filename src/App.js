@@ -17,14 +17,6 @@ function App() {
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Router />
-            {/* <a
-              href='https://www.flaticon.com/free-icons/cat'
-              title='cat icons'>Cat icons created by Freepik - Flaticon
-            </a>
-            <a
-              href='https://www.flaticon.com/free-icons/siberian-husky'
-              title='siberian husky icons'>Siberian husky icons created by AomAm - Flaticon
-            </a> */}
           </ThemeProvider>
         </PaginationProvider>
       </CatsAndDogsProvider>

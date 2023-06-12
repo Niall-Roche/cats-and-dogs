@@ -84,11 +84,12 @@ const GifContainer = styled.div`
 const Gif = () => {
   const {id} = useParams()
 
-  const {data} = useQuery(['gif', id], () => fetchGif(id), {
+  const {data, isError} = useQuery(['gif', id], () => fetchGif(id), {
     enabled: !!id,
     staleTime: 300000, // Data will become stale after 5 minutes
   })
 
+  // User section and source section will be hidden. Gif display will be centered if this is true.
   const noUserOrSource = (
     !data?.data?.source &&
     !data?.data?.source_post_url &&
