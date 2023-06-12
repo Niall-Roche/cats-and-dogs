@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import fetchGif from '../api/fetchGif'
 import Image from '../components/image/Image'
 import {styled} from 'styled-components'
-import {screenMd} from '../styles/mixins/screens'
+import {screenMd, screenMinMd} from '../styles/mixins/screens'
 import User from '../components/user/User'
 
 const Container = styled.div`
@@ -37,6 +37,7 @@ const DetailsContainer = styled.div`
   gap: 10px;
   ${screenMd({
     flexDirection: 'row',
+    flexWrap: 'wrap',
     order: 1,
   })}
 `
