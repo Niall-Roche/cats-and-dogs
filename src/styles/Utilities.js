@@ -1,5 +1,6 @@
 import {createGlobalStyle} from 'styled-components'
 
+// Convenience classes
 const Utilities = createGlobalStyle`
     .align-items-center {
         align-items: center;
