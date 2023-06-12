@@ -16,6 +16,7 @@ const Container = styled.div`
   ${screenMd({
     justifyContent: 'center',
     flexDirection: 'column',
+    gap: '20px',
   })}
 `
 
@@ -49,6 +50,8 @@ const SourceContainer = styled.div`
   background-color: ${props => props?.theme?.secondary};
   ${screenMd({
     alignSelf: 'start',
+    maxWidth: '100%',
+    width: '100%',
   })}
 `
 

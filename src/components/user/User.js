@@ -2,6 +2,7 @@ import {shape, string} from 'prop-types'
 import {styled} from 'styled-components'
 import Image from '../image/Image'
 import {GIPHY_ICON, INSTAGRAM_ICON} from '../../constants/images'
+import {screenMd} from '../../styles/mixins/screens'
 
 const propTypes = {
   data: shape({
@@ -58,6 +59,9 @@ const ProfileDescription = styled.p`
   max-width: 250px;
   white-space: pre-wrap;
   font-size: 14px;
+  ${screenMd({
+    maxWidth: '100%',
+  })}
 `
 
 const User = ({data}) => {
