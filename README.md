@@ -6,6 +6,12 @@ Toggle between cat and dog gifs. Select one to view more detail.
 
 Visit the [app](https://cats-and-dogs-sigma.vercel.app).
 
+## Install
+
+Clone the repo and run:
+
+### `yarn install`
+
 ## Available Scripts
 
 In the project directory, you can run:
