@@ -42,7 +42,7 @@ const Pagination = styled(ReactPaginate)`
       &:focus-visible {outline: 2px solid blue}
 
       &.active-link {
-        background-color: ${props => props?.theme?.secondary};
+        background-color: ${props => props?.theme?.accent};
         &:hover {
           font-weight: normal !important;
           cursor: default;
